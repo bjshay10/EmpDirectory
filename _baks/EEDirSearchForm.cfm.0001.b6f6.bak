@@ -1,0 +1,223 @@
+<html><!-- InstanceBegin template="/templates/IntTemplatefull.dwt.cfm" codeOutsideHTMLIsLocked="true" -->
+<head>
+
+<!-- InstanceBeginEditable name="doctitle" -->
+<title>Employe Directory -  Search</title>
+<!-- InstanceEndEditable -->
+<cfquery name="selectjumpmenu" datasource="mesa_web" dbtype="odbc">
+	select *
+	from jumpmenu
+	order by title
+</cfquery> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function MM_reloadPage(init) {  //reloads the window if Nav4 resized
+  if (init==true) with (navigator) {if ((appName=="Netscape")&&(parseInt(appVersion)==4)) {
+    document.MM_pgW=innerWidth; document.MM_pgH=innerHeight; onresize=MM_reloadPage; }}
+  else if (innerWidth!=document.MM_pgW || innerHeight!=document.MM_pgH) location.reload();
+}
+MM_reloadPage(true);
+
+function MM_jumpMenu(targ,selObj,restore){ //v3.0
+  eval(targ+".location='"+selObj.options[selObj.selectedIndex].value+"'");
+  if (restore) selObj.selectedIndex=0;
+}
+//-->
+</script>
+<!-- InstanceBeginEditable name="head" --><!-- InstanceEndEditable -->
+</head>
+<body bgcolor="#FFFFFF" text="#000000" link="#663366" vlink="#333333">
+ <div id="Layer2" style="position:absolute; left:9px; top:210px; width:680px; height:430px; z-index:2">
+   <h2><font color="#999999" face="Verdana, Arial, Helvetica, sans-serif"><em><!-- InstanceBeginEditable name="PageTitle" --> 
+    Employee Directory<!-- InstanceEndEditable --></em></font></h2>
+  <!-- InstanceBeginEditable name="Content" --><font size="-1" face="Verdana, Arial, Helvetica, sans-serif"></font>
+    <cfinclude template="EEDirInclude.cfm">
+   <cfquery name="Locations" datasource="EmployeeDirectory" dbtype="ODBC">
+SELECT DISTINCT LocNameLong, LocNumber FROM	DirLoc
+  </cfquery>
+    <! - - - Log Out button - - - >
+  
+  <form name="logout" action="EEDirLOGOUT.cfm" method="post">
+  <input name="Logout" type="submit" value="Logout">
+  </form>
+  <! - - - Search Results by Name - - - >
+  <form name="SearchForm" action="EEDirResultsByName.cfm" method="post">
+    <table width="37%" border="1" cellpadding="0" cellspacing="0" align="center">
+      <tr>
+        <td>
+          <table width="100%" border="0">
+            <tr>
+              <td background="../images/BKblue.jpg">
+                <div align="center"><font color="#FFFFFF" size="-1" face="Verdana, Arial, Helvetica, sans-serif"><b>Search the
+                      Employee Directory by Name</b></font></div>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <table width="100%" border="0">
+                  <tr>
+                    <td width="22%"><font color="#003399" size="-1" face="Verdana, Arial, Helvetica, sans-serif">First&nbsp;Name </font></td>
+                    <td width="1%">&nbsp; </td>
+                    <td width="77%"><font size="-1" face="Verdana, Arial, Helvetica, sans-serif">
+                      <input type="text" name="FirstName">
+                    </font></td>
+                  </tr>
+                  <tr>
+                    <td width="22%"><font color="#003399" size="-1" face="Verdana, Arial, Helvetica, sans-serif">Last&nbsp;Name </font></td>
+                    <td width="1%">&nbsp; </td>
+                    <td width="77%"><font size="-1" face="Verdana, Arial, Helvetica, sans-serif">
+                      <input type="text" name="LastName">
+                    </font></td>
+                  </tr>
+                  <tr>
+                    <td width="22%">&nbsp; </td>
+                    <td width="1%">&nbsp; </td>
+                    <td width="77%"><font size="-1" face="Verdana, Arial, Helvetica, sans-serif">
+                      <input type="submit" name="Submit" value="Search">
+                      <input type="reset" name="Submit2" value="Reset">
+                    </font></td>
+                  </tr>
+                </table>
+                
+                <font size="-1" face="Verdana, Arial, Helvetica, sans-serif">
+                <script>
+							document.SearchForm.FirstName.focus();
+						</script>
+              </font></td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+  </form>
+  <! - - - Search Results by Location - - - >
+  <form name="SearchForm2" action="EEDirResultsByLocation.cfm" method="post">
+    <table width="37%" border="1" cellpadding="0" cellspacing="0" align="center">
+      <tr>
+        <td>
+          <table width="100%" border="0" >
+            <tr>
+              <td background="../images/BKblue.jpg">
+                <div align="center"><font size="-1" face="Verdana, Arial, Helvetica, sans-serif"><b><font color="#FFFFFF">Search the
+                      Employee Directory by Location</font></b></font></div>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <table width="100%" border="0">
+                  <tr>
+                    <td width="22%"><font color="#003399" size="-1" face="Verdana, Arial, Helvetica, sans-serif"> Location </font></td>
+                    <td width="1%">&nbsp; </td>
+                    <td width="77%"><font size="-1" face="Verdana, Arial, Helvetica, sans-serif">
+                      <select name="GetLocation">
+                        <option value="None" selected>- - Click to Select - -</option>
+                        <cfoutput query="Locations">
+                          <option value="#LocNumber#">#LocNameLong#</option>
+                        </cfoutput>
+                      </select>
+                    </font></td>
+                  </tr>
+                  <tr>
+                    <td width="22%">&nbsp; </td>
+                    <td width="1%">&nbsp; </td>
+                    <td width="77%"><font size="-1" face="Verdana, Arial, Helvetica, sans-serif">
+                      <input type="submit" name="Submit" value="Search">
+                      <input type="reset" name="Submit2" value="Reset">
+                    </font></td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+  </form>
+  <p><font size="-1" face="Verdana, Arial, Helvetica, sans-serif">You can search by either name or location. For
+      a Name search, you do not need to enter the full name, you can enter part
+      of either first name or last name. A Location search will return everyone
+      at that location.</font></p>
+  <p><font size="-1" face="Verdana, Arial, Helvetica, sans-serif">For example,
+      if you were looking for Karol Joslyn-Benroth, you could enter &quot;Benr&quot; in the last name field and not need to
+      know Karol was spelled with a &quot;K&quot; or that her last name is under &quot;J&quot; for
+      Joslyn-Benroth&quot;.</font></p>
+  <p><font size="-1" face="Verdana, Arial, Helvetica, sans-serif">Subs and seasonal staff are excluded from the
+      directory, as they always have been.</font></p>
+  <p><font size="-1" face="Verdana, Arial, Helvetica, sans-serif">Please report any questions or problems regarding
+      the functionality of the Online Employee Directory to <a href="mailto:angela@mesa.k12.co.us">angela@mesa.k12.co.us</a>.
+      Please report any incorrect data to <a href="mailto:klisco@mesa.k12.co.us">klisco@mesa.k12.co.us</a> or <a href="mailto:cindyg@mesa.k12.co.us">cindyg@mesa.k12.co.us</a>.</font></p>
+  <p>&nbsp;</p>
+  <!-- InstanceEndEditable --> 
+  <hr>
+  <p><font size="-2" face="Verdana, Arial, Helvetica, sans-serif">Send mail to: 
+    <!-- InstanceBeginEditable name="email" --><a href="mailto: helpdesk@mesa.k12.co.us">helpdesk@mesa.k12.co.us</a><!-- InstanceEndEditable --> 
+    with questions or comments about this web site. <br>
+    Copyright&copy; 2003 Mesa County Valley School District 51<br>
+    Last modified 
+    <!-- #BeginDate format:Am1 -->August 18, 2004<!-- #EndDate -->
+    </font> </p>
+</div>
+<table width="682" cellpadding="0" cellspacing="0" bordercolor="#FFFFFF" background="../images/BKgrey.jpg" bgcolor="#FFFFFF">
+  <tr> 
+    <td width="31%" height="89"><div align="center"><img src="../images/logoSM3.gif" width="120" height="84"></div></td>
+    <td width="12%"><img src="../images/kid1.jpg" width="80" height="80" align="texttop"></td>
+    <td width="12%"><img src="../images/kid2.jpg" width="80" height="80"></td>
+    <td width="21%"><img src="../images/kidmiddle.jpg" width="143" height="85"></td>
+    <td width="12%"><img src="../images/kid3.jpg" width="80" height="80"></td>
+    <td width="13%"><img src="../images/kids1-2.jpg" width="80" height="80"></td>
+  </tr>
+</table>
+<table width="682" border="0" cellpadding="0" cellspacing="0">
+  <tr>
+    <td height="27"><a href="http://www.mesa.k12.co.us/2003/Main%20Page/about.cfm"></a><a href="http://www.mesa.k12.co.us/2003/Main%20Page/about.cfm"><img src="../images/buttons/sDistrict.gif" width="60" height="30" border="0"></a><a href="http://www.mesa.k12.co.us/2003/Board/index.cfm"></a><a href="http://www.mesa.k12.co.us/2003/Board/index.cfm"><img src="../images/buttons/sBoard.gif" width="60" height="30" border="0"></a><a href="http://www.mesa.k12.co.us/2003/Community/index.cfm"><img src="../images/buttons/bCommunity.gif" border="0"></a><a href="http://www.mesa.k12.co.us/2003/Departments/index.cfm"></a><a href="http://www.mesa.k12.co.us/2003/Departments/index.cfm"><img src="../images/buttons/bDepartments.gif" width="88" height="30" border="0"></a><a href="http://www.mesa.k12.co.us/2003/Human_Resources/index.cfm"></a><a href="http://www.mesa.k12.co.us/2003/Human_Resources/index.cfm"><img src="../images/buttons/bEmployment.gif" width="88" height="30" border="0"></a><a href="http://www.mesa.k12.co.us/2003/Parents/index.cfm"><font color="#FFFFFF" size="-1" face="Geneva, Arial, Helvetica, san-serif"><img src="../images/buttons/sParents.gif" width="60" height="30" border="0"></font></a><a href="http://www.mesa.k12.co.us/2003/Schools/index.cfm"><font color="#FFFFFF" size="-1" face="Geneva, Arial, Helvetica, san-serif"><img src="../images/buttons/sSchools.gif" width="60" height="30" border="0"></font></a><a href="http://www.mesa.k12.co.us/2003/Students/index.cfm"><font color="#FFFFFF" size="-1" face="Geneva, Arial, Helvetica, san-serif"><img src="../images/buttons/sstudents.gif" width="60" height="30" border="0"></font></a><a href="http://www.mesa.k12.co.us/2003/Staff/index.cfm"><font color="#FFFFFF" size="-1" face="Geneva, Arial, Helvetica, san-serif"><img src="../images/buttons/sstaff.gif" width="60" height="30" border="0"></font></a><a href="http://www.mesa.k12.co.us/index.cfm"><img src="../images/buttons/shome.gif" width="60" height="30" border="0"></a></td>
+  </tr>
+</table>
+<table width="682" background="../images/BKgrey.jpg">
+  <tr> 
+    <td width="36%" height="45"><font size="-1" face="Verdana, Arial, Helvetica, sans-serif">
+	Go To
+    </font>
+		
+		<select name="menu1" onChange="MM_jumpMenu('parent',this,1)">
+      <option selected>Select </option>
+		  <cfoutput query="selectjumpmenu">
+     	  <option value="#link#">#title#</option>
+    	</cfoutput>
+    </select><br><br>
+		</td>
+    <td width="58%">
+      <div align="right">
+        <cfparam name=SELECT default="">
+        <cfparam name=Criteria default="">
+      </div>
+      <form method="get" name="search" >
+        <div align="right"><font size="-1" face="Verdana, Arial, Helvetica, sans-serif">Search</font>
+            <select name="select">
+              <option selected>WebSite
+              <option>Email Address
+              <option>Board Policies
+		          </option>
+            </select>
+            <font size="-1" face="Verdana, Arial, Helvetica, sans-serif">        For</font>        <font size="-1" face="Verdana, Arial, Helvetica, sans-serif">        
+            <cfif SELECT IS "Website">
+              <cflocation url="http://www.mesa.k12.co.us/2003/searchmesa.cfm?criteria=#criteria#">
+            </cfif>
+            <cfif SELECT IS "Email Address">
+              <cflocation url="http://www.mesa.k12.co.us/2003/Staff/EmailSearch/searchemail.cfm?criteria=#criteria#">
+            </cfif>
+            <cfif SELECT IS "Board Policies">
+              <cflocation url="http://www.mesa.k12.co.us/2003/Board/searchpolicies.cfm?criteria=#criteria#">
+            </cfif>
+            <input name="criteria" type="text" maxlength="30">
+            <input name="Button" type="image" value="go" src="../images/buttons/go.gif" align="top">
+            </font>
+        </div>
+      </form>
+      <div align="right">
+        <cfparam name=Criteria default="">
+      </div></td></tr>
+</table>
+<p>&nbsp;</p>
+</body>
+<!-- InstanceEnd -->
