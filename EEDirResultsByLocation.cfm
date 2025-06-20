@@ -81,8 +81,7 @@ ORDER BY Lastname, Firstname
           </font><font face="Verdana, Arial, Helvetica, sans-serif">
            </font>
           <tr>
-            <td><font size="-1" face="Verdana, Arial, Helvetica, sans-serif"> <a href="javascript:PrintVer.submit()">click
-                  here for printable version</a>
+            <td><font size="-1" face="Verdana, Arial, Helvetica, sans-serif"> <a href="javascript:PrintVer.submit()" class="printable-version-link">View Printable Version</a>
                   <input name="GetLocation" type="hidden" value="#form.GetLocation#" />
             </font></td>
           </tr>
@@ -100,7 +99,9 @@ ORDER BY Lastname, Firstname
     <tr> 
     </tr><cfoutput query="EEDirLoc">
       <tr>
-        <td colspan="2" background="../images/BKblue.jpg"><font color="##FFFFFF" size="-1" face="Verdana, Arial, Helvetica, sans-serif"><strong>#LocNameLong#</strong></font></td>
+        <td colspan="2" class="blue-background-cell">
+          <span class="heading-text">#LocNameLong#</span>
+      </td>
       </tr>
       <tr>
         <td colspan="2"><font size="-1" face="Verdana, Arial, Helvetica, sans-serif">#ContactName#</font></td>
@@ -114,7 +115,7 @@ ORDER BY Lastname, Firstname
       </tr>
     </cfoutput>
   </table>
-  <h4></h4>
+<!---   <h4></h4> --->
   <font face="Verdana, Arial, Helvetica, sans-serif">
   <! - - - display employee info table - - - >
   </font>

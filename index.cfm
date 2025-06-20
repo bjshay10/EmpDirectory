@@ -52,27 +52,39 @@
 	</cfif>
 
 <!--- User Login --->
-	<cfif not isdefined ('session.username') and not isdefined ('submitform')>
-        <p>&nbsp;</p>
-        <cfif isdefined('tryagain')>
-            <pan class="red">Invalid Username or Password or you are unauthorized- - Try again</span>
-            </div>
-        </cfif>
-        <center><cfform name="form2" method="post" action="" width="500" height="550">
+<cfif not isdefined ('session.username') and not isdefined ('submitform')>
+    <p>&nbsp;</p>
+    <cfif isdefined('tryagain')>
+        <span class="red">Invalid Username or Password or you are unauthorized - Try again</span>
+        </div> </cfif>
 
-		<table align="center">
-        	<tr>
-            	<td align="center">
-        			Username: <cfinput name="username" type="text" size="20" label="Username:" onkeydown="if(Key.isDown(Key.ENTER)) Submituser.dispatchEvent({type:'click'});"><br />
+    <div style="text-align: center;">
+        <cfform name="form2" method="post" action="" width="500" height="550">
 
- 	 				Password: <cfinput name="password" type="password" size="20" label="Password:" onkeydown="if(Key.isDown(Key.ENTER)) Submituser.dispatchEvent({type:'click'});"><br />
-    				<cfinput type="submit" name="Submituser" value="Submit">
-        		</td>
-           </tr>
-       </table>
-   	</cfform>
-    </center>
-  </cfif>
+            <table align="center">
+                <tr>
+                    <td align="center">
+                        <div>
+                            <label for="username_input">Username:</label>
+                            <cfinput name="username" type="text" size="20" id="username_input"
+                                onkeydown="if(Key.isDown(Key.ENTER)) Submituser.dispatchEvent({type:'click'});">
+                            <br />
+                        </div>
+
+                        <div>
+                            <label for="password_input">Password:</label>
+                            <cfinput name="password" type="password" size="20" id="password_input"
+                                onkeydown="if(Key.isDown(Key.ENTER)) Submituser.dispatchEvent({type:'click'});">
+                            <br />
+                        </div>
+
+                        <cfinput type="submit" name="Submituser" value="Submit">
+                    </td>
+                </tr>
+            </table>
+        </cfform>
+    </div>
+</cfif>
   
     <!--- Check Username and Password --->
 	<cfif isdefined ("form.submituser")>        

@@ -59,35 +59,41 @@ SELECT DISTINCT LocNameLong, LocNumber FROM	DirLoc
 				<td>
 				  <table width="100%" border="0">
 					<tr>
-					  <td background="../images/BKblue.jpg">
-						<div align="center"><font color="#FFFFFF" size="-1" face="Verdana, Arial, Helvetica, sans-serif"><b>Search the
-							  Employee Directory by Name</b></font></div>
-					  </td>
+					  <td class="blue-background-cell">
+						<div class="centered-text">
+							<span class="heading-text">Search the Employee Directory by Name</span>
+						</div>
+					</td>
 					</tr>
 					<tr>
 					  <td>
 						<table width="100%" border="0">
 						  <tr>
-							<td width="22%"><font color="#003399" size="-1" face="Verdana, Arial, Helvetica, sans-serif">First&nbsp;Name </font></td>
-							<td width="1%">&nbsp; </td>
-							<td width="77%"><font size="-1" face="Verdana, Arial, Helvetica, sans-serif">
-							  <input type="text" name="FirstName" />
-							</font></td>
+							<!--- <td width="22%"><font color="#003399" size="-1" face="Verdana, Arial, Helvetica, sans-serif">First&nbsp;Name </font></td> --->
+							<!--- <td width="1%">&nbsp; </td> --->
+							<td width="100%">
+								<label for="firstNameInput"><font color="#003399" size="-1" face="Verdana, Arial, Helvetica, sans-serif">First Name:</font></label>
+								<input type="text" name="FirstName" id="firstNameInput" />
+							</td>
 						  </tr>
 						  <tr>
-							<td width="22%"><font color="#003399" size="-1" face="Verdana, Arial, Helvetica, sans-serif">Last&nbsp;Name </font></td>
-							<td width="1%">&nbsp; </td>
-							<td width="77%"><font size="-1" face="Verdana, Arial, Helvetica, sans-serif">
-							  <input type="text" name="LastName" />
-							</font></td>
+							<!--- <td width="22%">
+								<span class="form-label-text">Last Name</font></span>
+							</td>
+							<td width="1%">&nbsp;</td> --->
+							<td width="100%">
+								<label for="lastNameInput" class="sr-only"><font color="#003399" size="-1" face="Verdana, Arial, Helvetica, sans-serif">Last Name</font></label> 
+								<input type="text" name="LastName" id="lastNameInput" />
+							</td>
 						  </tr>
 						  <tr>
-							<td width="22%">&nbsp; </td>
-							<td width="1%">&nbsp; </td>
-							<td width="77%"><font size="-1" face="Verdana, Arial, Helvetica, sans-serif">
+							<!--- <td width="22%">&nbsp; </td>
+							<td width="1%">&nbsp; </td> --->
+							<td width="100%"><font size="-1" face="Verdana, Arial, Helvetica, sans-serif">
 							  <input type="submit" name="Submit" value="Search" />
 							  <input type="reset" name="Submit2" value="Reset" />
-							</font></td>
+							</font>
+							</td>
 						  </tr>
 						</table>
 						
@@ -112,9 +118,11 @@ SELECT DISTINCT LocNameLong, LocNumber FROM	DirLoc
 					<td>
 					  <table width="100%" border="0" >
 						<tr>
-						  <td background="../images/BKblue.jpg">
-							<div align="center"><font size="-1" face="Verdana, Arial, Helvetica, sans-serif"><b><font color="#FFFFFF">Click Here For an Alphabetical List of Employees </font></b></font></div>
-						  </td>
+						  <td class="blue-background-cell">
+							<div class="centered-text">
+								<span class="heading-text">Click Here For an Alphabetical List of Employees</span>
+							</div>
+						</td>
 						</tr>
 						<tr>
 						  <td>
@@ -147,17 +155,20 @@ SELECT DISTINCT LocNameLong, LocNumber FROM	DirLoc
 						<td>
 							<table width="100%" border="0">
 								<tr>
-									<td background="../images/BKblue.jpg" colspan="3">
-										<div align="center"><font size="-1" face="Verdana, Arial, Helvetica, sans-serif"><b><font color="#FFFFFF">Search the Employee Directory By Position</font></b></font></div>
+									<td class="blue-background-cell" colspan="3">
+										<div class="centered-text">
+											<span class="heading-text">Search the Employee Directory By Position</span>
+										</div>
 									</td>
 								</tr>
 								<tr>
-									<td width="22%">
-										<font color="#003399" size="-1" face="Verdana, Arial, Helvetica, sans-serif">Position</font>
+									<!--- <td width="22%">
+										<span class="form-label-text">Position</span>
 									</td>
-									<td width="1%">&nbsp; </td>
-									<td width="77%">
-										<input type="text" name="Position" />	
+									<td width="1%">&nbsp;</td> --->
+									<td width="100%">
+										<label for="positionInput" class="sr-only">Position</label>
+										<input type="text" name="Position" id="positionInput" />
 									</td>
 								</tr>
 								<tr>
@@ -183,17 +194,20 @@ SELECT DISTINCT LocNameLong, LocNumber FROM	DirLoc
 						<td>
 							<table width="100%" border="0">
 								<tr>
-									<td background="../images/BKblue.jpg" colspan="3">
-										<div align="center"><font size="-1" face="Verdana, Arial, Helvetica, sans-serif"><b><font color="#FFFFFF">Search the Employee Directory By Subject Taught</font></b></font></div>
+									<td class="blue-background-cell" colspan="3">
+										<div class="centered-text">
+											<span class="heading-text">Search the Employee Directory By Subject Taught</span>
+										</div>
 									</td>
 								</tr>
 								<tr>
-									<td width="22%">
-										<font color="#003399" size="-1" face="Verdana, Arial, Helvetica, sans-serif">Subject</font>
+									<!--- <td width="22%">
+										<span class="form-label-text">Subject</span>
 									</td>
-									<td width="1%">&nbsp; </td>
-									<td width="77%">
-										<input type="text" name="Subject" />	
+									<td width="1%">&nbsp;</td> --->
+									<td width="100%">
+										<label for="subjectInput" class="sr-only">Subject</label>
+										<input type="text" name="Subject" id="subjectInput" />
 									</td>
 								</tr>
 								<tr>
@@ -221,30 +235,35 @@ SELECT DISTINCT LocNameLong, LocNumber FROM	DirLoc
 					<td>
 					  <table width="100%" border="0" >
 						<tr>
-						  <td background="../images/BKblue.jpg">
-							<div align="center"><font size="-1" face="Verdana, Arial, Helvetica, sans-serif"><b><font color="#FFFFFF">Search the
-								  Employee Directory by Location</font></b></font></div>
-						  </td>
+						  <td class="blue-background-cell">
+							<div class="centered-text">
+								<span class="heading-text">Search the Employee Directory by Location</span>
+							</div>
+						</td>
 						</tr>
 						<tr>
 						  <td>
 							<table width="100%" border="0">
 							  <tr>
-								<td width="22%"><font color="#003399" size="-1" face="Verdana, Arial, Helvetica, sans-serif"> Location </font></td>
-								<td width="1%">&nbsp; </td>
-								<td width="77%"><font size="-1" face="Verdana, Arial, Helvetica, sans-serif">
-								  <select name="GetLocation">
-									<option value="None" selected="selected">- - Click to Select - -</option>
-									<cfoutput query="Locations">
-									  <option value="#LocNumber#">#LocNameLong#</option>
-									</cfoutput>
-								  </select>
+								<!--- <td width="22%">
+									<span class="form-label-text">Location</span>
+								</td>
+								<td width="1%">&nbsp;</td> --->
+								<td width="100%">
+									<label for="getLocationSelect" class="sr-only">Location</label>
+									<select name="GetLocation" id="getLocationSelect">
+										<option value="None" selected="selected">- - Click to Select - -</option>
+										<cfoutput query="Locations">
+											<option value="#LocNumber#">#LocNameLong#</option>
+										</cfoutput>
+									</select>
+								</td>
 								</font></td>
 							  </tr>
 							  <tr>
-								<td width="22%">&nbsp; </td>
-								<td width="1%">&nbsp; </td>
-								<td width="77%"><font size="-1" face="Verdana, Arial, Helvetica, sans-serif">
+								<!--- <td width="22%">&nbsp; </td>
+								<td width="1%">&nbsp; </td> --->
+								<td width="100%"><font size="-1" face="Verdana, Arial, Helvetica, sans-serif">
 								  <input type="submit" name="Submit" value="Search" />
 								  <input type="reset" name="Submit2" value="Reset" />
 								</font></td>

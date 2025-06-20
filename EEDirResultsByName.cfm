@@ -88,7 +88,8 @@ ORDER BY Lastname, Firstname
 		  </font></font><font size="-1">
 		  </font>
 		  <tr><td><font size="-1" face="Verdana, Arial, Helvetica, sans-serif">
-		  <a href="javascript:PrintVer.submit()">click here for printable version</a></font><font face="Verdana, Arial, Helvetica, sans-serif"><a href="javascript:PrintVer.submit()"></a>
+		  <!--- <a href="javascript:PrintVer.submit()">click here for printable version</a></font><font face="Verdana, Arial, Helvetica, sans-serif"><a href="javascript:PrintVer.submit()"></a> --->
+		  <a href="javascript:PrintVer.submit()" class="printable-version-link">View printable version</a>
 		<input name="FirstName" type="hidden" value="#form.FirstName#" />
 		<input name="LastName" type="hidden" value="#form.LastName#" />
 		</font></td></tr>
